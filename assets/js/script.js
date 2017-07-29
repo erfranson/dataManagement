@@ -55,6 +55,16 @@ $(document).ready(function () {
         $("#monthly-display").html(monthlyRate);
 
 
+        var firstRowTds = $("table")
+            .children()
+            .eq(1).children("tr")
+            .eq(1).children("td");
+        // Setting the inner text of each td in the first row
+        firstRowTds.eq(0).text(name);
+        firstRowTds.eq(2).text(startDate);
+        firstRowTds.eq(4).text(monthlyRate);
+
+
     });
 
 
@@ -77,6 +87,16 @@ $(document).ready(function () {
         email = snapshot.val().email;
         startDate = snapshot.val().startDate;
         monthlyRate = snapshot.val().monthlyRate;
+
+
+        var firstRowTds = $("table")
+            .children()
+            .eq(1).children("tr")
+            .eq(0).children("td");
+        // Setting the inner text of each td in the first row
+        firstRowTds.eq(0).text(snapshot.val().name);
+        firstRowTds.eq(2).text(snapshot.val().startDate);
+        firstRowTds.eq(4).text(snapshot.val().monthlyRate);
 
         //Catches any errors
     }, function(errorObject) {
